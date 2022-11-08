@@ -3,7 +3,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-row">
             <div class="form-group col">
-                <label>Título</label>
+                <label class="card-font">Título</label>
                 <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
                     <option value=""></option>
                     <option value="Mr">Sr</option>
@@ -16,14 +16,14 @@
                 </div>
             </div>
             <div class="form-group col-5">
-                <label>Nome</label>
+                <label class="card-font">Nome</label>
                 <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                 <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                     <div *ngIf="f.firstName.errors.required">Nome é obrigatório!</div>
                 </div>
             </div>
             <div class="form-group col-5">
-                <label>Sobrenome</label>
+                <label class="card-font">Sobrenome</label>
                 <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                 <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                     <div *ngIf="f.lastName.errors.required">Sobrenome é obrigatório!</div>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label>Email</label>
+            <label class="card-font">Email</label>
             <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div *ngIf="f.email.errors.required">Email é obrigatório!</div>
@@ -40,7 +40,7 @@
         </div>
         <div class="form-row">
             <div class="form-group col">
-                <label>Senha</label>
+                <label class="card-font">Senha</label>
                 <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Senha é obrigatória!</div>
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="form-group col">
-                <label>Confirmar Senha</label>
+                <label class="card-font">Confirmar Senha</label>
                 <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
                 <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
                     <div *ngIf="f.confirmPassword.errors.required">Confirmar Senha é obrigatório!</div>
@@ -58,7 +58,7 @@
         </div>
         <div class="form-group form-check">
             <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
-            <label for="acceptTerms" class="form-check-label">Aceitar Termos e Condições</label>
+            <label for="acceptTerms" class="card-font">Aceitar Termos e Condições</label>
             <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Aceitar Termos e Condições  é obrigatório!</div>
         </div>
         <div class="form-group">
@@ -66,7 +66,11 @@
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Registrar
             </button>
-            <a routerLink="../login" href="" class="btn btn-link">Cancelar</a>
+            <a routerLink="../login" href="" class="btn btn-link">
+              <button [disabled]="loading" class="btn btn-primary">
+                Cancelar
+              </button>
+            </a>
         </div>
     </form>
 </div>
