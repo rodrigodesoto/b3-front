@@ -17,12 +17,14 @@ export class ListComponent implements OnInit {
     }
 
     deleteAccount(id: string) {
+      if (confirm('Você realmente deseja excluir o usuário?')) {
         const account = this.accounts.find(x => x.id === id);
         account.isDeleting = true;
         this.accountService.delete(id)
-            .pipe(first())
-            .subscribe(() => {
-                this.accounts = this.accounts.filter(x => x.id !== id) 
-            });
+          .pipe(first())
+          .subscribe(() => {
+            this.accounts = this.accounts.filter(x => x.id !== id)
+          });
+      }
     }
 }

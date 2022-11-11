@@ -27,7 +27,7 @@ export class AccountService {
     }
 
     login(email: string, password: string) {
-        return this.http.post<any>(`https://b3-api-backend.herokuapp.com/accounts/authenticate`, { email, password }, { withCredentials: false })
+        return this.http.post<any>(`${baseUrl}/authenticate`, { email, password }, { withCredentials: false })
             .pipe(map(account => {
                 this.accountSubject.next(account);
                 this.startRefreshTokenTimer();

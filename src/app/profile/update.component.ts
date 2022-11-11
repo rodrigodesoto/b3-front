@@ -65,7 +65,7 @@ export class UpdateComponent implements OnInit {
     }
 
     onDelete() {
-        if (confirm('Are you sure?')) {
+        if (confirm('Você realmente deseja excluir o usuário?')) {
             this.deleting = true;
             this.accountService.delete(this.account.id)
                 .pipe(first())

@@ -1,4 +1,4 @@
-﻿<h1>Update Perfil</h1>
+﻿<h1>Alterar Perfil</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-row">
         <div class="form-group col">
@@ -62,10 +62,14 @@
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Alterar
         </button>
-        <button type="button" (click)="onDelete()" [disabled]="deleting" class="btn btn-danger">
+        <button type="submit" (click)="onDelete()" [disabled]="deleting" class="btn btn-primary mr-2">
             <span *ngIf="deleting" class="spinner-border spinner-border-sm mr-1"></span>
             Excluir
         </button>
-        <a routerLink="../" href="" class="btn btn-link">Cancelar</a>
+        <a routerLink="../" class="btn btn-link">
+          <button [disabled]="loading" class="btn btn-primary">
+            Cancelar
+          </button>
+        </a>
     </div>
 </form>

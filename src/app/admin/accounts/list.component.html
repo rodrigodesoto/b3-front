@@ -1,6 +1,10 @@
 ﻿<h1>Usuários</h1>
-<p>Todas as contas do (somente administrador) api end point:</p>
-<a routerLink="add" class="btn btn-sm btn-success mb-2">Create Account</a>
+<p>Todas as contas (acesso somente ao administrador):</p>
+<a routerLink="add">
+  <button [disabled]="loading" class="btn btn-primary">
+    Criar Conta
+</button>
+</a>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -17,7 +21,7 @@
             <td>{{account.role}}</td>
             <td style="white-space: nowrap">
                 <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Editar</a>
-                <button (click)="deleteAccount(account.id)" class="btn btn-sm btn-danger btn-delete-account" [disabled]="account.isDeleting">
+                <button (click)="deleteAccount(account.id)" class="btn btn-sm btn-primary mr-1" [disabled]="account.isDeleting">
                     <span *ngIf="account.isDeleting" class="spinner-border spinner-border-sm"></span>
                     <span *ngIf="!account.isDeleting">Deletar</span>
                 </button>
