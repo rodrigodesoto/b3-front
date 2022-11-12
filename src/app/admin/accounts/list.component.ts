@@ -7,6 +7,7 @@ import { Account } from '@app/_models';
 @Component({ templateUrl: 'list.component.html' })
 export class ListComponent implements OnInit {
     accounts: any[];
+    loading = false;
 
     constructor(private accountService: AccountService) {}
 
