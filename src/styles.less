@@ -1,14 +1,23 @@
 // global styles
 a { cursor: pointer; }
 
-//.container {
-//  //min-height: 620px;
-//  //min-width: 100%;
-//  background-color: #1e2025;
-//}
+.bg-dark-1 {
+  min-height: 569px;
+  min-width: 100%;
+  //background-color: #1e2025;
+}
+
+.bg-opa {
+  opacity: 0.8;
+}
+
+.font-container {
+  color: #a8acaf;
+  opacity: 0.9;
+}
 
 .app-container {
-  min-height: 620px;
+  min-height: 625px;
   min-width: 100%;
   background-color: #1e2025;
 }
@@ -72,7 +81,7 @@ a { cursor: pointer; }
 
 #record {
   width: 100%;
-  height: 100%;
+  height: 20%;
   position: relative;
   overflow: hidden;
   /* Center text */
@@ -87,10 +96,10 @@ a { cursor: pointer; }
 #record::before {
   background: url("logo.svg")
   no-repeat center center;
-  background-size: 80% 80%;
+  background-size: 75% 75%;
   content: "";
   width: 100vw;
-  height: 100vw;
+  height: 80vw;
   position: absolute;
   animation: spin 120s linear infinite;
   opacity: 0.5;
