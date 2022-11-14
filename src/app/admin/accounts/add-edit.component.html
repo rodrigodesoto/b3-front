@@ -1,87 +1,92 @@
-﻿<h1 *ngIf="isAddMode">Criar Usuário</h1>
-<h1 *ngIf="!isAddMode">Editar Usuário</h1>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-row">
-        <div class="form-group col">
-            <label>Título</label>
-            <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
-                <option value=""></option>
-                <option value="Mr">Sr</option>
-                <option value="Mrs">Srs</option>
-                <option value="Miss">Sras</option>
-                <option value="Ms">Sra</option>
-            </select>
-            <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-                <div *ngIf="f.title.errors.required">Título é obrigatório!</div>
-            </div>
-        </div>
-        <div class="form-group col-5">
-            <label>Nome</label>
-            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                <div *ngIf="f.firstName.errors.required">Nome é obrigatório!</div>
-            </div>
-        </div>
-        <div class="form-group col-5">
-            <label>Sobrenome</label>
-            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                <div *ngIf="f.lastName.errors.required">Sobrenome é obrigatório!</div>
-            </div>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-7">
-            <label>Email</label>
-            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                <div *ngIf="f.email.errors.required">Email  é obrigatório!</div>
-                <div *ngIf="f.email.errors.email">Email deve ser um endereço de e-mail válido!</div>
-            </div>
-        </div>
-        <div class="form-group col">
-            <label>Acesso</label>
-            <select formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
-                <option value=""></option>
-                <option value="User">User</option>
-                <option value="Admin">Admin</option>
-            </select>
-            <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
-                <div *ngIf="f.role.errors.required">Acesso é obrigatório!</div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="!isAddMode">
-        <h3 class="pt-3">Alterar Senha</h3>
-        <p>Deixe em branco para manter a mesma senha</p>
-    </div>
-    <div class="form-row">
-        <div class="form-group col">
-            <label>Senha</label>
-            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Senha  é obrigatório!</div>
-                <div *ngIf="f.password.errors.minlength">A senha deve ter pelo menos 6 caracteres</div>
-            </div>
-        </div>
-        <div class="form-group col">
-            <label>Confirmar Senha</label>
-            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
-            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                <div *ngIf="f.confirmPassword.errors.required">Confirmar Senha  é obrigatório!</div>
-                <div *ngIf="f.confirmPassword.errors.mustMatch">As senhas devem corresponder</div>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Salvar
-        </button>
-        <a routerLink="/admin/accounts" class="btn btn-link">
+﻿<div class="card-body bg-dark bg-dark-perfil">
+  <br>
+    <h3 *ngIf="isAddMode" class="card-header font-container-right-forgot">Criar Usuário</h3>
+    <h3 *ngIf="!isAddMode" class="card-header font-container-right-forgot">Editar Usuário</h3>
+  <div class="card-update-body">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+          <div class="form-group col">
+              <label class="card-font">Título</label>
+              <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                  <option value=""></option>
+                  <option value="Mr">Sr</option>
+                  <option value="Mrs">Srs</option>
+                  <option value="Miss">Sras</option>
+                  <option value="Ms">Sra</option>
+              </select>
+              <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                  <div *ngIf="f.title.errors.required">Título é obrigatório!</div>
+              </div>
+          </div>
+          <div class="form-group col-5">
+              <label class="card-font">Nome</label>
+              <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">Nome é obrigatório!</div>
+              </div>
+          </div>
+          <div class="form-group col-5">
+              <label class="card-font">Sobrenome</label>
+              <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="f.lastName.errors.required">Sobrenome é obrigatório!</div>
+              </div>
+          </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-7">
+              <label class="card-font">Email</label>
+              <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email  é obrigatório!</div>
+                  <div *ngIf="f.email.errors.email">Email deve ser um endereço de e-mail válido!</div>
+              </div>
+          </div>
+          <div class="form-group col">
+              <label class="card-font">Acesso</label>
+              <select formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+                  <option value=""></option>
+                  <option value="User">User</option>
+                  <option value="Admin">Admin</option>
+              </select>
+              <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                  <div *ngIf="f.role.errors.required">Acesso é obrigatório!</div>
+              </div>
+          </div>
+      </div>
+      <div *ngIf="!isAddMode">
+          <h3 class="card-header">Alterar Senha</h3>
+          <p class="card-font">Deixe em branco para manter a mesma senha</p>
+      </div>
+      <div class="form-row">
+          <div class="form-group col">
+              <label class="card-font">Senha</label>
+              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Senha  é obrigatório!</div>
+                  <div *ngIf="f.password.errors.minlength">A senha deve ter pelo menos 6 caracteres</div>
+              </div>
+          </div>
+          <div class="form-group col">
+              <label class="card-font">Confirmar Senha</label>
+              <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+              <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                  <div *ngIf="f.confirmPassword.errors.required">Confirmar Senha  é obrigatório!</div>
+                  <div *ngIf="f.confirmPassword.errors.mustMatch">As senhas devem corresponder</div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
           <button [disabled]="loading" class="btn btn-primary">
-            Cancelar
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Salvar
           </button>
-        </a>
-    </div>
-</form>
+          <a routerLink="/admin/accounts" class="btn btn-link">
+            <button [disabled]="loading" class="btn btn-primary">
+              Cancelar
+            </button>
+          </a>
+      </div>
+  </form>
+  </div>
+</div>
