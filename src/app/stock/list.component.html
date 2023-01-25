@@ -1,0 +1,38 @@
+﻿<div class="card-body bg-dark bg-dark-perfil">
+  <h3 class="card-font-users font-container-right-forgot">Carteira de Ações</h3>
+  <a class="margin-200" routerLink="add">
+    <button [disabled]="loading" class="btn btn-primary">
+      Criar Conta
+  </button>
+  </a>
+  <br><br>
+  <table class="table-striped margin-200" table-width border=0>
+      <thead>
+          <tr align="center">
+              <th class="card-font-users" style="width:40%">Nome</th>
+              <th class="card-font-users" style="width:30%">Email</th>
+              <th class="card-font-users" style="width:10%">Acesso</th>
+              <th style="width:20%"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let account of accounts">
+              <td>{{account.title}} {{account.firstName}} {{account.lastName}}</td>
+              <td>{{account.email}}</td>
+              <td align="center">{{account.role}}</td>
+              <td align="center" style="white-space: nowrap">
+                  <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Editar</a>
+                  <button (click)="deleteAccount(account.id)" class="btn btn-sm btn-primary mr-1" [disabled]="account.isDeleting">
+                      <span *ngIf="account.isDeleting" class="spinner-border spinner-border-sm"></span>
+                      <span *ngIf="!account.isDeleting">Deletar</span>
+                  </button>
+              </td>
+          </tr>
+          <tr *ngIf="!accounts">
+              <td colspan="4" class="text-center">
+                  <span class="spinner-border spinner-border-lg align-center"></span>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

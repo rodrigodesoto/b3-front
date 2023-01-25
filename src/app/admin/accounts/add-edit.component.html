@@ -1,5 +1,5 @@
 ﻿<div class="card-body bg-dark bg-dark-perfil">
-  <br>
+  <br *ngIf="!isAddMode">
     <h3 *ngIf="isAddMode" class="card-header font-container-right-forgot">Criar Usuário</h3>
     <h3 *ngIf="!isAddMode" class="card-header font-container-right-forgot">Editar Usuário</h3>
   <div class="card-update-body">
