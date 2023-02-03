@@ -1,0 +1,73 @@
+﻿<div class="card-body bg-dark bg-dark-perfil">
+  <br *ngIf="!isAddMode">
+    <h3 *ngIf="isAddMode" class="card-header font-container-right-forgot">Inserir Ação</h3>
+    <h3 *ngIf="!isAddMode" class="card-header font-container-right-forgot">Editar Ação</h3>
+  <div class="card-stock-body">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group col-2">
+        <label class="card-font">Código</label>
+        <input type="text" [textMask]="{mask: codeMask}" formControlName="stock" class="form-control uppercase" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+        <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+          <div *ngIf="f.stock.errors.required"><b>Código é obrigatório!</b></div>
+        </div>
+      </div>
+      <div class="form-group col-5">
+        <label class="card-font">Nome da empresa</label>
+        <input type="text" formControlName="shortName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.shortName.errors }" />
+        <div *ngIf="submitted && f.shortName.errors" class="invalid-feedback">
+          <div *ngIf="f.shortName.errors.required"><b>Nome da empresa é obrigatório!</b></div>
+        </div>
+      </div>
+      <div class="form-group col-2">
+        <label class="card-font">Quantidade</label>
+        <input type="number" step="1" formControlName="qtd" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.qtd.errors }" />
+        <div *ngIf="submitted && f.qtd.errors" class="invalid-feedback">
+          <div *ngIf="f.qtd.errors.required"><b>QUantidade é obrigatório!</b></div>
+        </div>
+      </div>
+      <div class="form-group col-2">
+        <label class="card-font">Valor</label>
+        <input type="text" currencyMask [options]="options" formControlName="currentPrice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.currentPrice.errors }" />
+        <div *ngIf="submitted && f.currentPrice.errors" class="invalid-feedback">
+          <div *ngIf="f.currentPrice.errors.required"><b>Valor é obrigatório!</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-3">
+        <label class="card-font">Valor de compra</label>
+        <input type="text" currencyMask [options]="options"  formControlName="vlrInvest" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.vlrInvest.errors }" />
+        <div *ngIf="submitted && f.vlrInvest.errors" class="invalid-feedback">
+          <div *ngIf="f.vlrInvest.errors.required"><b>Valor de compra é obrigatório!</b></div>
+        </div>
+      </div>
+      <div class="form-group col-2">
+        <label class="card-font">Valor Total</label>
+        <input type="text" currencyMask [options]="options" id="vlrTotal" formControlName="vlrTotal" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.vlrTotal.errors }" />
+        <div *ngIf="submitted && f.vlrTotal.errors" class="invalid-feedback">
+          <div *ngIf="f.vlrTotal.errors.required"><b>Valor Total é obrigatório!</b></div>
+        </div>
+      </div>
+      <div class="form-group col-3">
+        <label class="card-font">Data de Compra</label>
+        <input type="date" formControlName="dtAtual" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dtAtual.errors }" />
+        <div *ngIf="submitted && f.dtAtual.errors" class="invalid-feedback">
+          <div *ngIf="f.dtAtual.errors.required"><b>Data de Compra é obrigatório!</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Salvar
+        </button>
+        <a routerLink="/stock" class="btn btn-link">
+          <button [disabled]="loading" class="btn btn-primary">
+            Cancelar
+          </button>
+        </a>
+    </div>
+  </form>
+  </div>
+</div>

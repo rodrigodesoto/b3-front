@@ -4,16 +4,26 @@ import {CommonModule} from '@angular/common';
 
 import {StockRoutingModule} from './stock-routing.module';
 import {LayoutComponent} from './layout.component';
+import {ListComponent} from "../admin/accounts/list.component";
+import {ListStocks} from "./list.stocks";
+import {AddEditComponent} from "./add-edit.component";
+import { TextMaskModule } from 'angular2-text-mask';
+import { NgxCurrencyModule } from "ngx-currency";
+
 
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        StockRoutingModule
+        StockRoutingModule,
+        TextMaskModule,
+        NgxCurrencyModule
     ],
     declarations: [
-        LayoutComponent
+        LayoutComponent,
+        ListStocks,
+        AddEditComponent
     ]
 })
 export class StockModule { }
