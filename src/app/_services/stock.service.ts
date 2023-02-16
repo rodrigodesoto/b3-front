@@ -7,7 +7,7 @@ import { map, finalize } from 'rxjs/operators';
 import { environment } from '@environments/environment';
 import { Stock } from '@app/_models';
 
-const baseUrl = `${environment.apiUrl}/stock`;
+const baseUrl = `${environment.apiUrl}/stocks`;
 
 @Injectable({ providedIn: 'root' })
 export class StockService {
@@ -27,11 +27,11 @@ export class StockService {
     }
 
     register(stock: Stock) {
-        return this.http.post(`${baseUrl}/register`, stock);
+        return this.http.post(`${baseUrl}/insertStock`, stock);
     }
 
     getAll() {
-        return this.http.get<Stock[]>(baseUrl);
+        return this.http.get<Stock[]>(`${baseUrl}/getAllStocks`);
     }
 
     getById(id: string) {
