@@ -25,15 +25,15 @@ export class AddEditComponent implements OnInit {
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
         this.isAddMode = !this.id;
-        console.log(this.isAddMode);
+
         this.form = this.formBuilder.group({
-            stock: ['', Validators.required],
+            stockCode: ['', Validators.required],
             shortName: ['', Validators.required],
             qtd: ['', Validators.required],
             currentPrice: ['', [Validators.required, Validators.minLength(1)]],
-            vlrInvest: ['', [Validators.required, Validators.minLength(1)]],
-            vlrTotal: ['', [Validators.required, Validators.minLength(1)]],
-            dtAtual: [Date.now, Validators.required]
+            vlBuy: ['', [Validators.required, Validators.minLength(1)]],
+            vlTotal: ['', [Validators.required, Validators.minLength(1)]],
+            dtBuy: ['', Validators.required]
         });
 
         if (!this.isAddMode) {

@@ -2,27 +2,35 @@
   <h3 class="card-font-users font-container-right-forgot">Carteira de Ações</h3>
   <p class="card-font-users">Todas as contas (acesso somente ao administrador):</p>
   <a class="margin-200" routerLink="add">
-    <button [disabled]="loading" class="btn btn-primary">
+    <button [disabled]="loading" class="btn btn-primary stock-insert-btn">
       Inserir
   </button>
   </a>
   <br><br>
-  <table class="table-striped margin-200" table-width border=0>
+  <table class="table-striped stock-list-margin" table-width border=0>
       <thead>
           <tr align="center">
-              <th class="card-font-users" style="width:40%">Código</th>
-              <th class="card-font-users" style="width:30%">Nome</th>
-              <th class="card-font-users" style="width:10%">Preço</th>
-              <th style="width:20%"></th>
+              <th class="stock-font-title" style="width:20%">Código</th>
+              <th class="stock-font-title" style="width:30%">Nome</th>
+              <th class="stock-font-title" style="width:10%">Qtd</th>
+              <th class="stock-font-title" style="width:10%">Preço</th>
+              <th class="stock-font-title align-center" style="width:10%">Var</th>
+              <th style="width:10%"></th>
+              <th style="width:10%"></th>
           </tr>
       </thead>
       <tbody>
           <tr *ngFor="let stock of stocks">
-              <td>{{stock.stock}}</td>
+              <td>{{stock.stockCode}}</td>
               <td>{{stock.shortName}}</td>
+              <td>{{stock.qtd}}</td>
+              <td>{{stock.currentPrice | number:'1.2-2'}}</td>
+              <td class="stock-font-marketChange" *ngIf="stock.marketChange < 0" style="color: crimson"><b>{{stock.marketChange | number:'1.2-2'}}</b></td>
+              <td class="stock-font-marketChange" *ngIf="stock.marketChange >= 0" style="color: darkgreen"><b>{{stock.marketChange | number:'1.2-2'}}</b></td>
+              <td></td>
               <td align="center" style="white-space: nowrap">
                   <a routerLink="edit/{{stock.id}}" class="btn btn-sm btn-primary mr-1">Editar</a>
-                  <button (click)="deleteAccount(stock.id)" class="btn btn-sm btn-primary mr-1" [disabled]="stock.isDeleting">
+                  <button (click)="deleteStock(stock.id)" class="btn btn-sm btn-primary mr-1" [disabled]="stock.isDeleting">
                       <span *ngIf="stock.isDeleting" class="spinner-border spinner-border-sm"></span>
                       <span *ngIf="!stock.isDeleting">Deletar</span>
                   </button>

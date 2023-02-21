@@ -39,7 +39,7 @@ export class StockService {
     }
 
     create(params) {
-        return this.http.post(baseUrl, params);
+        return this.http.post(`${baseUrl}/insertStock`, params);
     }
 
     update(id, params) {

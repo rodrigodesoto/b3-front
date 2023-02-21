@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://b3-api-backend.herokuapp.com'
+  apiUrl: 'http://localhost:4000'
 };
 
 /*

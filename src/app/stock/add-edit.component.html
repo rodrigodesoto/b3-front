@@ -7,7 +7,7 @@
     <div class="form-row">
       <div class="form-group col-2">
         <label class="card-font">Código</label>
-        <input type="text" [textMask]="{mask: codeMask}" formControlName="stock" class="form-control uppercase" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+        <input type="text" [textMask]="{mask: codeMask}" formControlName="stockCode" class="form-control uppercase" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
         <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
           <div *ngIf="f.stock.errors.required"><b>Código é obrigatório!</b></div>
         </div>
@@ -37,23 +37,23 @@
     <div class="form-row">
       <div class="form-group col-3">
         <label class="card-font">Valor de compra</label>
-        <input type="text" currencyMask [options]="options"  formControlName="vlrInvest" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.vlrInvest.errors }" />
-        <div *ngIf="submitted && f.vlrInvest.errors" class="invalid-feedback">
-          <div *ngIf="f.vlrInvest.errors.required"><b>Valor de compra é obrigatório!</b></div>
+        <input type="text" currencyMask [options]="options"  formControlName="vlBuy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.vlBuy.errors }" />
+        <div *ngIf="submitted && f.vlBuy.errors" class="invalid-feedback">
+          <div *ngIf="f.vlBuy.errors.required"><b>Valor de compra é obrigatório!</b></div>
         </div>
       </div>
       <div class="form-group col-2">
         <label class="card-font">Valor Total</label>
-        <input type="text" currencyMask [options]="options" id="vlrTotal" formControlName="vlrTotal" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.vlrTotal.errors }" />
-        <div *ngIf="submitted && f.vlrTotal.errors" class="invalid-feedback">
-          <div *ngIf="f.vlrTotal.errors.required"><b>Valor Total é obrigatório!</b></div>
+        <input type="text" currencyMask [options]="options" id="vlTotal" formControlName="vlTotal" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.vlTotal.errors }" />
+        <div *ngIf="submitted && f.vlTotal.errors" class="invalid-feedback">
+          <div *ngIf="f.vlTotal.errors.required"><b>Valor Total é obrigatório!</b></div>
         </div>
       </div>
       <div class="form-group col-3">
         <label class="card-font">Data de Compra</label>
-        <input type="date" formControlName="dtAtual" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dtAtual.errors }" />
-        <div *ngIf="submitted && f.dtAtual.errors" class="invalid-feedback">
-          <div *ngIf="f.dtAtual.errors.required"><b>Data de Compra é obrigatório!</b></div>
+        <input type="date" formControlName="dtBuy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dtBuy.errors }" />
+        <div *ngIf="submitted && f.dtBuy.errors" class="invalid-feedback">
+          <div *ngIf="f.dtBuy.errors.required"><b>Data de Compra é obrigatório!</b></div>
         </div>
       </div>
     </div>

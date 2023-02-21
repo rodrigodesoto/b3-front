@@ -1,6 +1,4 @@
-﻿import { Role } from './role';
-
-export class Stock {
+﻿export class Stock {
     id: string;
     stockCode: string;
     shortName: string;

@@ -15,8 +15,8 @@ export class ListStocks implements OnInit {
             .subscribe(stocks => this.stocks = stocks);
     }
 
-    deleteAccount(id: string) {
-      if (confirm('Você realmente deseja excluir o usuário?')) {
+    deleteStock(id: string) {
+      if (confirm('Você realmente deseja excluir a ação?')) {
         const stock = this.stocks.find(x => x.id === id);
         stock.isDeleting = true;
         this.stockService.delete(id)
