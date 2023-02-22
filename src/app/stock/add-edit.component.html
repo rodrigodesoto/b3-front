@@ -7,9 +7,9 @@
     <div class="form-row">
       <div class="form-group col-2">
         <label class="card-font">Código</label>
-        <input type="text" [textMask]="{mask: codeMask}" formControlName="stockCode" class="form-control uppercase" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
-        <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
-          <div *ngIf="f.stock.errors.required"><b>Código é obrigatório!</b></div>
+        <input type="text" [textMask]="{mask: codeMask}" formControlName="stockCode" class="form-control uppercase" [ngClass]="{ 'is-invalid': submitted && f.stockCode.errors }" />
+        <div *ngIf="submitted && f.stockCode.errors" class="invalid-feedback">
+          <div *ngIf="f.stockCode.errors.required"><b>Código é obrigatório!</b></div>
         </div>
       </div>
       <div class="form-group col-5">

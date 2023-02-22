@@ -45,7 +45,7 @@ export class StockService {
     update(id, params) {
         return this.http.put(`${baseUrl}/${id}`, params)
             .pipe(map((stock: any) => {
-                // update the current account if it was updated
+                // update the current stock if it was updated
                 if (stock.id === this.stockValue.id) {
                     // publish updated account to subscribers
                   stock = { ...this.stockValue, ...stock };
