@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { StockService, AlertService } from '@app/_services';
 import {NgxCurrencyModule} from "ngx-currency";
+import {DatePipe} from "@angular/common";
 
 @Component({ templateUrl: 'add-edit.component.html' })
 export class AddEditComponent implements OnInit {
@@ -25,7 +26,7 @@ export class AddEditComponent implements OnInit {
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
         this.isAddMode = !this.id;
-
+        const dat = new Date().toISOString().substring(0,10);
         this.form = this.formBuilder.group({
             stockCode: ['', Validators.required],
             shortName: ['', Validators.required],
@@ -33,7 +34,7 @@ export class AddEditComponent implements OnInit {
             currentPrice: ['', [Validators.required, Validators.minLength(1)]],
             vlBuy: ['', [Validators.required, Validators.minLength(1)]],
             vlTotal: ['', [Validators.required, Validators.minLength(1)]],
-            dtBuy: ['', Validators.required]
+            dtBuy: [dat, Validators.required]
         });
 
         if (!this.isAddMode) {
@@ -74,7 +75,7 @@ export class AddEditComponent implements OnInit {
                     this.router.navigate(['../'], { relativeTo: this.route });
                 },
                 error: error => {
-                    this.alertService.error(error);
+                    this.alertService.error(error.message);
                     this.loading = false;
                 }
             });
@@ -86,7 +87,7 @@ export class AddEditComponent implements OnInit {
             .subscribe({
                 next: () => {
                     this.alertService.success('Ação alterada com sucesso!', { keepAfterRouteChange: true });
-                    this.router.navigate(['../../'], { relativeTo: this.route });
+                    this.router.navigate(['/stock'], { relativeTo: this.route });
                 },
                 error: error => {
                     this.alertService.error(error);

@@ -46,11 +46,11 @@ export class StockService {
         return this.http.put(`${baseUrl}/${id}`, params)
             .pipe(map((stock: any) => {
                 // update the current stock if it was updated
-                if (stock.id === this.stockValue.id) {
+
                     // publish updated account to subscribers
                   stock = { ...this.stockValue, ...stock };
                     this.stockSubject.next(stock);
-                }
+
                 return stock;
             }));
     }
