@@ -96,6 +96,6 @@ export class AddEditComponent implements OnInit {
             });
     }
 
-  codeMask = [/\D/,/\D/,/\D/,/\D/,/\d/]
+  codeMask = [/\D/,/\w/,/\D/,/\D/,/\d/]
   options = { prefix: '', thousands: '.', decimal: ',', inputMode: NgxCurrencyModule }
 }
