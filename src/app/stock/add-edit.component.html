@@ -49,7 +49,25 @@
           <div *ngIf="f.vlTotal.errors.required"><b>Valor Total é obrigatório!</b></div>
         </div>
       </div>
-      <div class="form-group col-3">
+
+
+      <div class="form-group col-2">
+        <label class="card-font">Ordem</label>
+        <input type="number" id="order" formControlName="order" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.order.errors }" />
+        <div *ngIf="submitted && f.order.errors" class="invalid-feedback">
+          <div *ngIf="f.order.errors.required"><b>Ordem é obrigatório!</b></div>
+        </div>
+      </div>
+      <div class="form-group col-4">
+        <label class="card-font">Código ADVFN</label>
+        <input type="text" id="advfnCode" formControlName="advfnCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.advfnCode.errors }" />
+        <div *ngIf="submitted && f.advfnCode.errors" class="invalid-feedback">
+          <div *ngIf="f.advfnCode.errors.required"><b>Código ADVFN é obrigatório!</b></div>
+        </div>
+      </div>
+
+
+      <div class="form-group col-5">
         <label class="card-font">Data de Compra</label>
         <input type="date" formControlName="dtBuy" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dtBuy.errors }" />
         <div *ngIf="submitted && f.dtBuy.errors" class="invalid-feedback">

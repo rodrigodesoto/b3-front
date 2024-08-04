@@ -16,7 +16,14 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.accountService.logout();
             }
 
-            const error = (err && err.error && err.error.message) || err.statusText;
+            let error = (err && err.error && err.error.message) || err.statusText;
+
+            if(err.status == 0){
+              error = 'Sem comunicação com backend!';
+            } else if (err.status == 500 && err.error.toString().search('Email ou senha está incorreto') != -1) {
+              error = 'Email ou senha está incorreto!';
+            }
+
             console.error(err);
             return throwError(error);
         }))

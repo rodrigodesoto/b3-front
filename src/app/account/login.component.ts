@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigateByUrl(returnUrl);
                 },
                 error: error => {
-                    this.alertService.error('Email ou senha está incorreto!');
+                    this.alertService.error(error);
                     this.loading = false;
                 }
             });

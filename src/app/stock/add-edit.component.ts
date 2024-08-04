@@ -34,7 +34,10 @@ export class AddEditComponent implements OnInit {
             currentPrice: ['', [Validators.required, Validators.minLength(1)]],
             vlBuy: ['', [Validators.required, Validators.minLength(1)]],
             vlTotal: ['', [Validators.required, Validators.minLength(1)]],
-            dtBuy: [dat, Validators.required]
+            dtBuy: [dat, Validators.required],
+            order: ['', Validators.required],
+            advfnCode: ['', Validators.required]
+
         });
 
         if (!this.isAddMode) {
