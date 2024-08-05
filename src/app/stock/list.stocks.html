@@ -10,11 +10,11 @@
   <table class="table-striped stock-list-margin" table-width border=0>
       <thead>
           <tr align="center">
-              <th class="stock-font-title" style="width:20%">Código</th>
-              <th class="stock-font-title" style="width:35%">Nome</th>
-              <th class="stock-font-title" style="width:10%">Qtd</th>
-              <th class="stock-font-title" style="width:10%">Preço</th>
-              <th class="stock-font-title align-center" style="width:10%">Var</th>
+              <th class="stock-font-title" style="width:5%">Código</th>
+              <th class="stock-font-title" style="width:25%">Nome</th>
+              <th class="stock-font-title" style="width:8%">Qtd</th>
+              <th class="stock-font-title" style="width:5%">Preço</th>
+              <th class="stock-font-title align-right" style="width:5%">Var</th>
               <th style="width:5%"></th>
               <th style="width:10%"></th>
           </tr>
@@ -24,7 +24,7 @@
               <td>{{stock.stockCode}}</td>
               <td>{{stock.shortName}}</td>
               <td>{{stock.qtd}}</td>
-              <td>{{stock.currentPrice | number:'1.2-2'}}</td>
+              <td align="right">{{stock.currentPrice | number:'1.2-2'}}</td>
               <td class="stock-font-marketChange" *ngIf="stock.marketChange < 0" style="color: crimson"><b>{{stock.marketChange | number:'1.2-2'}}</b></td>
               <td class="stock-font-marketChange" *ngIf="stock.marketChange >= 0" style="color: darkgreen"><b>{{stock.marketChange | number:'1.2-2'}}</b></td>
               <td></td>
