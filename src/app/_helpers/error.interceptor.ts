@@ -22,9 +22,27 @@ export class ErrorInterceptor implements HttpInterceptor {
               error = 'Sem comunicação com backend!';
             } else if (err.status == 500 && err.error.toString().search('Email ou senha está incorreto') != -1) {
               error = 'Email ou senha está incorreto!';
+            } else {
+              const obj = err.error.error;
+              const arr = Object.values(obj);
+              let msgErro = '';
+
+              for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+
+                if(msgErro === ''){
+                  msgErro = msgErro+Object.values(arr[i])[1]
+                } else {
+                  msgErro = msgErro+'\n'+Object.values(arr[i])[1]
+                }
+
+              }
+
+              error = 'Erro: \n'+msgErro;
             }
 
-            console.error(err);
+            // console.error(error);
+            // console.error(err);
             return throwError(error);
         }))
     }
