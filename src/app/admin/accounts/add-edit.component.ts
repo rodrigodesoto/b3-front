@@ -27,7 +27,6 @@ export class AddEditComponent implements OnInit {
         this.isAddMode = !this.id;
 
         this.form = this.formBuilder.group({
-            title: ['', Validators.required],
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
@@ -72,7 +71,7 @@ export class AddEditComponent implements OnInit {
             .pipe(first())
             .subscribe({
                 next: () => {
-                    this.alertService.success('Account created successfully', { keepAfterRouteChange: true });
+                    this.alertService.success('Conta criada com sucesso!', { keepAfterRouteChange: true });
                     this.router.navigate(['../'], { relativeTo: this.route });
                 },
                 error: error => {
@@ -87,7 +86,7 @@ export class AddEditComponent implements OnInit {
             .pipe(first())
             .subscribe({
                 next: () => {
-                    this.alertService.success('Update successful', { keepAfterRouteChange: true });
+                    this.alertService.success('Alteração efetuada com sucesso!', { keepAfterRouteChange: true });
                     this.router.navigate(['../../'], { relativeTo: this.route });
                 },
                 error: error => {

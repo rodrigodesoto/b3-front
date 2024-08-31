@@ -2,7 +2,7 @@
 <div class="card-body">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-row">
-            <div class="form-group col">
+            <!-- <div class="form-group col">
                 <label class="card-font">Título</label>
                 <select formControlName="title" class="form-control card-font" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
                     <option value=""></option>
@@ -14,15 +14,15 @@
                 <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
                     <div *ngIf="f.title.errors.required">Título é obrigatório</div>
                 </div>
-            </div>
-            <div class="form-group col-5">
+            </div> -->
+            <div class="form-group col-4">
                 <label class="card-font">Nome</label>
                 <input type="text" formControlName="firstName" class="form-control card-font" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                 <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                     <div *ngIf="f.firstName.errors.required">Nome é obrigatório!</div>
                 </div>
             </div>
-            <div class="form-group col-5">
+            <div class="form-group col-7">
                 <label class="card-font">Sobrenome</label>
                 <input type="text" formControlName="lastName" class="form-control card-font" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                 <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">

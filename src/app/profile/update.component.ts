@@ -24,7 +24,6 @@ export class UpdateComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.formBuilder.group({
-            title: [this.account.title, Validators.required],
             firstName: [this.account.firstName, Validators.required],
             lastName: [this.account.lastName, Validators.required],
             email: [this.account.email, [Validators.required, Validators.email]],
@@ -54,7 +53,7 @@ export class UpdateComponent implements OnInit {
             .pipe(first())
             .subscribe({
                 next: () => {
-                    this.alertService.success('Update successful', { keepAfterRouteChange: true });
+                    this.alertService.success('Alteração efetuada com sucesso!', { keepAfterRouteChange: true });
                     this.router.navigate(['../'], { relativeTo: this.route });
                 },
                 error: error => {
@@ -70,7 +69,7 @@ export class UpdateComponent implements OnInit {
             this.accountService.delete(this.account.id)
                 .pipe(first())
                 .subscribe(() => {
-                    this.alertService.success('Account deleted successfully', { keepAfterRouteChange: true });
+                    this.alertService.success('Conta excluida com sucesso!', { keepAfterRouteChange: true });
                 });
         }
     }

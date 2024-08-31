@@ -4,7 +4,7 @@
   <div class="card-update-body">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-row">
-            <div class="form-group col">
+            <!-- <div class="form-group col">
                 <label class="card-font">Título</label>
                 <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
                     <option value=""></option>
@@ -16,15 +16,15 @@
                 <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
                     <div *ngIf="f.title.errors.required">Título é obrigatório!</div>
                 </div>
-            </div>
-            <div class="form-group col-5">
+            </div> -->
+            <div class="form-group col-4">
                 <label class="card-font">Primeiro Nome</label>
                 <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                 <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                     <div *ngIf="f.firstName.errors.required">Primeiro Nome é obrigatório</div>
                 </div>
             </div>
-            <div class="form-group col-5">
+            <div class="form-group col-7">
                 <label class="card-font">Sobrenome</label>
                 <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                 <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
@@ -32,16 +32,20 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-row">
+          <div class="form-group col-11">
             <label class="card-font">Email</label>
             <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                 <div *ngIf="f.email.errors.required">Email é obrigatório</div>
                 <div *ngIf="f.email.errors.email">O e-mail deve ser um endereço de e-mail válido</div>
             </div>
+          </div>
         </div>
-        <h3 class="card-header" >Alterar Senha</h3>
-        <p class="card-font">Deixe em branco para manter a mesma senha</p>
+        <div class="form-row">
+          <h3 class="card-header" >Alterar Senha</h3>
+          <p class="card-font">Deixe em branco para manter a mesma senha</p>
+        </div>
         <div class="form-row">
             <div class="form-group col">
                 <label class="card-font">Senha</label>

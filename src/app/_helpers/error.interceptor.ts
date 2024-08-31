@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { AccountService } from '@app/_services';
+import { EmailValidator } from '@angular/forms';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -22,6 +23,8 @@ export class ErrorInterceptor implements HttpInterceptor {
               error = 'Sem comunicação com backend!';
             } else if (err.status == 500 && err.error.toString().search('Email ou senha está incorreto') != -1) {
               error = 'Email ou senha está incorreto!';
+            } else if (err.status == 500 && err.error.toString().search('já está registrado') != -1) {
+              error = 'Email já está registrado!';
             } else {
               const obj = err.error.error;
               const arr = Object.values(obj);
