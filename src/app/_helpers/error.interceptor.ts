@@ -21,9 +21,9 @@ export class ErrorInterceptor implements HttpInterceptor {
 
             if(err.status == 0){
               error = 'Sem comunicação com backend!';
-            } else if (err.status == 500 && err.error.toString().search('Email ou senha está incorreto') != -1) {
+            } else if (err.status == 500 && err.error.message.toString().search('Email ou senha está incorreto') != -1) {
               error = 'Email ou senha está incorreto!';
-            } else if (err.status == 500 && err.error.toString().search('já está registrado') != -1) {
+            } else if (err.status == 500 && err.error.message.toString().search('já está registrado') != -1) {
               error = 'Email já está registrado!';
             } else {
               const obj = err.error.error;
