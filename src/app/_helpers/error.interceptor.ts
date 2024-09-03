@@ -25,27 +25,13 @@ export class ErrorInterceptor implements HttpInterceptor {
               error = 'Email ou senha está incorreto!';
             } else if (err.status == 500 && err.error.message.toString().search('já está registrado') != -1) {
               error = 'Email já está registrado!';
+            } else if (err.status == 500 && err.error.message.toString().search('Invalid login')  != -1
+              && err.error.message.toString().search('support@') != -1) {
+              error = 'Não foi possível enviar email!';
             } else {
-              const obj = err.error.error;
-              const arr = Object.values(obj);
-              let msgErro = '';
-
-              for (let i = 0; i < arr.length; i++) {
-                console.log(arr[i]);
-
-                if(msgErro === ''){
-                  msgErro = msgErro+Object.values(arr[i])[1]
-                } else {
-                  msgErro = msgErro+'\n'+Object.values(arr[i])[1]
-                }
-
-              }
-
+              let msgErro = error;
               error = 'Erro: \n'+msgErro;
             }
-
-            // console.error(error);
-            // console.error(err);
             return throwError(error);
         }))
     }
