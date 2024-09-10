@@ -10,6 +10,7 @@
   <table class="table-striped stock-list-margin" table-width border=0>
       <thead>
           <tr align="center">
+              <th class="stock-font-title" style="width:5%">Ordem</th>
               <th class="stock-font-title" style="width:5%">Código</th>
               <th class="stock-font-title" style="width:25%">Nome</th>
               <th class="stock-font-title" style="width:8%">Qtd</th>
@@ -21,6 +22,7 @@
       </thead>
       <tbody>
           <tr *ngFor="let stock of stocks">
+              <td>{{stock.order}}</td>
               <td>{{stock.stockCode}}</td>
               <td>{{stock.shortName}}</td>
               <td>{{stock.qtd}}</td>
